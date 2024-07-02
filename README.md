@@ -86,6 +86,17 @@ This project is a serverless web application deployed on AWS, utilizing a variet
 3. Define the methods and resources for your API.
 4. Integrate the API with your Lambda functions.
 
+
+
+![2024-07-02_10h18_56](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/61130bd1-af3e-4fef-b674-05e2b97652e9)
+
+
+![2024-07-02_10h19_35](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/a7146b31-0fb5-4aab-bb10-12a1ea53c093)
+
+![2024-07-02_10h20_22](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/f4db9698-f4c7-4ccf-87a1-d25b2ab49e09)
+
+
+
 ### Step 2: Set Up IAM Roles and Policies
 1. Create an IAM role for Lambda with the necessary permissions for accessing DynamoDB, SES, and other AWS services.
 2. Attach the appropriate policies to the IAM roles.
@@ -114,59 +125,58 @@ This project is a serverless web application deployed on AWS, utilizing a variet
 2. Write the back-end code for Lambda functions to handle requests and interact with DynamoDB and SES.
 3. Define the API endpoints in API Gateway and link them to the corresponding Lambda functions.
 
+
+### Edit Environment Variables
+
+![2024-07-02_10h14_48](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/88e636dc-30fa-43b7-b7a0-4634cecc9192)
+
+
+### Create Another Bucket with Public Access & Upload Required Files
+
+![2024-07-02_10h37_26](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/64a7579f-fb89-4960-9de1-6df6135d9274)
+
+![2024-07-02_10h37_44](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/cdb21401-8770-49cd-8a45-81ef3b597dd8)
+
+
+![2024-07-02_11h40_10](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/71c10425-21fd-4b57-b3a7-048448f13959)
+
+
+
+### Generate Policy for the S3 Bucket that we have created  previous documentation
+
+![2024-07-02_11h46_57](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/bf0012f4-7de1-4d81-886a-1ca91a8fcd69)
+
+
+![2024-07-02_11h48_34](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/9e83b9d0-4ab7-41c0-891f-116f7db80c8a)
+
+
+![2024-07-02_11h48_53](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/e406aba7-0aa2-4d29-8538-216fbbda70aa)
+
+
+![2024-07-02_11h49_26](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/da06b982-10c7-4560-8456-131fa18ed0be)
+
+![2024-07-02_11h51_44](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/38f3e758-2578-4235-b33d-83d1971f3bf0)
+
+
 ### Step 4: Deploy the Application
 1. Use the AWS CLI to deploy your Lambda functions and update the S3 bucket with the latest front-end code.
 2. Deploy the API Gateway and note the endpoint URLs.
 
-### Step 5: Set Up CI/CD with GitHub
-1. Create a new repository on GitHub.
-2. Push your application code to the repository.
-3. Set up a GitHub Actions workflow to automate the deployment process.
 
-#### Sample GitHub Actions Workflow
-```yaml
-name: Deploy to AWS
 
-on:
-  push:
-    branches:
-      - main
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Deploy to S3
-        run: aws s3 sync ./frontend s3://your-s3-bucket-name --delete
-
-      - name: Deploy Lambda function
-        run: |
-          zip -r lambda.zip ./backend
-          aws lambda update-function-code --function-name your-lambda-function-name --zip-file fileb://lambda.zip
-
-      - name: Deploy API Gateway
-        run: aws apigatewayv2 update-api --api-id your-api-id --deployment-id your-deployment-id
-```
-
-### Step 6: Test the Application
+### Step 5: Test the Application
 1. Open your browser and navigate to the S3 bucket URL to access your web application.
 2. Test the different functionalities to ensure everything is working correctly.
 
+
+![2024-07-02_11h53_58](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/91ce201e-b548-4b0d-bfdc-1307b16a712e)
+
+
+![2024-07-02_11h54_12](https://github.com/MdShafiurRahman0/aws-serverless-web-app/assets/113176437/2ea7cbf8-f29e-43f0-9eae-aca62ca5fefa)
+
+
+
 ### Conclusion
 By following these steps, you have successfully deployed a serverless web application on AWS using IAM, DynamoDB, Lambda, SES, API Gateway, and S3. This architecture provides scalability, cost-effectiveness, and high availability, leveraging the power of AWS services.
-
----
-
-This guide should help you set up and deploy your serverless web application on AWS efficiently. If you have any specific questions or need further assistance, feel free to ask!
